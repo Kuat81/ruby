@@ -1,20 +1,25 @@
+arr = Array.new
 puts "first value"
-  a = gets.chomp.to_i
+  arr << gets.chomp.to_i
 
 puts "Second value"
-  b = gets.chomp.to_i
+  arr << gets.chomp.to_i
 
 puts "Third value"
-  c = gets.chomp.to_i
+  arr << gets.chomp.to_i
+arr.sort
+x1 = arr [0]
+x2 = arr [1]
+x3 = arr [2]
 
-a1 = a ** 2
-b1 = b ** 2
-c1 = c ** 2
-sum = a1 + b1
+a = x1 ** 2
+b = x2 ** 2
+c = x3 ** 2
+sum = a + b
 
 
  if
-  (sum == c1) && (a == b || a == c || c == b)
+  (sum == c) && (a == b || a == c || c == b)
 
 puts "treugolnik yablyaetsa pryamougolnym i ravnobedrennym"
 
