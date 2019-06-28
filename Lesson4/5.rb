@@ -1,17 +1,17 @@
-puts "Day"
+print "Day: "
 day = gets.chomp.to_i
-puts "Month"
-mon = gets.chomp.to_s
-puts "Year"
+print "Month: "
+mon = gets.chomp.to_i
+print "Year: "
 year = gets.chomp.to_i
-days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-if year % 4 == 0 && year % 400 == 0 && yaer % 100 != 0
-  days [1] == 29
+days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+days[1] = 29 if year % 400 == 0 || ( year % 4 ==0 && year % 100 != 0)
+
+sum = 0
+for i in 0..mon-2
+  sum += days[i]
 end
- if mon == 1
-   result  = days
- end
-soma = days[0..11].sum
-res = soma - day
- puts res
+sum += day
+
+puts "Resultat: #{sum}"

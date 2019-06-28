@@ -1,6 +1,7 @@
-a = [10]
-n = a[-1] + 10
-a << n
-while (n = a[-2] + a[-1]) < 100 do a << n end
+a = [0, 1]
 
-puts a 
+while (c = a[-2] + a[-1]) < 100
+   a << c
+ end
+
+puts "Number Fibonachi, #{a}"
