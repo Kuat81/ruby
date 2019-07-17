@@ -19,8 +19,8 @@ odd_1 = self.select{|i| i.odd?}.size
 difference = even_1 - odd_1
 end
 
-def reverse_string
-self.each {|n| return 'Error numeric' if n.class == Interger}
+def reverse_stringß
+self.each {|n| return 'Error numeric' if n.class == Integer}
 self.map {|str| str.reverse}
 end
 
