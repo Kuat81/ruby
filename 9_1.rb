@@ -31,7 +31,7 @@ end
 
    end
   end
+  return items
 end
-return items
 
 automate("A05", 280, items)
