@@ -32,6 +32,6 @@ end
    end
   end
 end
-#puts items
+return items
 
 automate("A05", 280, items)
