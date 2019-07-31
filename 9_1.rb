@@ -34,4 +34,4 @@ end
   return items
 end
 
-automate("A05", 280, items)
+automate("A05", 270, items)
