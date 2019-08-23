@@ -60,6 +60,7 @@ class Train
   def go_next
     return "End Station" @train == @route.stations.last
     @index = @route.stations.index(@train)
+    @route.stations.delete(@index)
     @index += 1
     @train = @route.stations[@index]
     @train.add_train(self)
@@ -69,6 +70,7 @@ class Train
   def go_back
     return "Error" @train == @route.stations.first
     @index = @route.stations.index(@train)
+    @route.stations.delete(@index)
     @index -= 1
     @train = @route.stations[@index]
     @train.add_train(self)
