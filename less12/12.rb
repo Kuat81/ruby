@@ -7,7 +7,7 @@ class Station
     @trains = []
   end
 
-  def add_train(number)
+  def accept_train(number)
     @trains << number
   end
 
@@ -15,7 +15,7 @@ class Station
     @trains.select{|train| train.type == type}
   end
 
-  def del_train(number)
+  def sent_train(number)
     @trains.delete(number)
   end
 end
@@ -50,39 +50,39 @@ class Train
 
   def station_route(route)
     @route = route
-    @number = @route.stations.first
-    @number.add_train(self)
+    @current_st = @route.stations.first
+    @current_st.accept_train(self)
   end
 
   def current_st_index
-    @route.stations.index(@number)
+    @route.stations.index(@current_st)
   end
 
   def current_station
-    @route.stations[@number]
+    @current_st
   end
-  def next_station
+  def next_st
     @route.stations[current_st_index + 1]
   end
 
-  def previous_station
+  def previous_st
     @route.stations[current_st_index - 1]
   end
 
   def go_next_st
-    return unless @number && @route
-    return current_station == @route.stations.last
-    @number.del_train(self)
-    @number=@route.stations[current_st_index + 1]
-    @number.add_train(self)
+    move(next_st)
   end
 
   def go_back_st
-    return unless @number && @route
+    move(previous_st)
+  end
+
+  def move(station)
+    return unless @current_st && @route
     return current_station == @route.stations.first
-    @number.del_train(self)
-    @number=@route.stations[current_st_index - 1]
-    @number.add_train(self)
+    station.sent_train(self)
+    station.accept_train(self)
+    @current_st = station
   end
 
 end
