@@ -41,7 +41,7 @@ class Route
 end
 
 class Train
-  attr_accessor :number
+  attr_reader :number, :type
 
   def initialize(number, type)
     @number = number
