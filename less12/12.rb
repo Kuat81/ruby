@@ -70,7 +70,7 @@ class Train
   end
 
   def go_next_st
-    return unless @current_station && @route
+    #return unless @current_station && @route
     return current_station == @route.stations.last
     @number.del_train(self)
     @number=@route.stations[current_st_index + 1]
@@ -78,7 +78,7 @@ class Train
   end
 
   def go_back_st
-    return unless @current_station && @route
+    #return unless @current_station && @route
     return current_station == @route.stations.first
     @number.del_train(self)
     @number=@route.stations[current_st_index - 1]
