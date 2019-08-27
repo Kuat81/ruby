@@ -7,16 +7,16 @@ class Station
     @trains = []
   end
 
-  def accept_train(number)
-    @trains << number
+  def accept_train(train)
+    @trains << train
   end
 
   def trains_type(type)
     @trains.select{|train| train.type == type}
   end
 
-  def sent_train(number)
-    @trains.delete(number)
+  def sent_train(train)
+    @trains.delete(train)
   end
 end
 
