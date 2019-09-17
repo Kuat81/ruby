@@ -19,10 +19,6 @@ class Station
     @trains.delete(train)
   end
 
-  def train_arr
-    @trains.select{|train| p train.number}
-  end
-
 end
 
 class Route
@@ -35,17 +31,13 @@ class Route
   end
 
   def add_station(station)
-    return "Error" if station == @stations.first #|| @stations.last
+    return "Error" if station == @stations.first #|| @stations.last у меня не работает return если использую оператор ||
     @stations.insert(-2, station)
   end
 
   def del_station(station)
     return "Error" if station == @stations.last
     @stations.delete(station)
-  end
-
-  def stations_arr
-    @stations.each{|station| p station.name}
   end
 end
 
@@ -59,7 +51,6 @@ class Train
 
   def station_route(route)
     @route = route
-    @current_st1 = @route.stations.first.name
     @current_st = @route.stations.first
     @current_st.accept_train(self)
   end
@@ -69,7 +60,7 @@ class Train
   end
 
   def current_station
-    puts @current_st1
+      @current_st
   end
   def next_st
      @route.stations[current_st_index + 1]
