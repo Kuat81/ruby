@@ -31,7 +31,7 @@ class Route
   end
 
   def add_station(station)
-    return "Error" if station == @stations.first #|| @stations.last у меня не работает return если использую оператор ||
+    return "Error" if station == @stations.first #|| @stations.last
     @stations.insert(-2, station)
   end
 
@@ -80,7 +80,6 @@ class Train
 
   def move(station)
     return unless @current_st && @route
-    #return if @current_st == @route.stations.first || @route.stations.last
     @current_st.sent_train(self)
     @current_st = station
     @current_st.accept_train(self)
