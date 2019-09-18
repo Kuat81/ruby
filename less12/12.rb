@@ -31,12 +31,11 @@ class Route
   end
 
   def add_station(station)
-    return "Error" if station == @stations.first #|| @stations.last
     @stations.insert(-2, station)
   end
 
   def del_station(station)
-    return "Error" if station == @stations.last
+    return "Error" if tation == @stations.first || station == @stations.last
     @stations.delete(station)
   end
 end
@@ -71,10 +70,12 @@ class Train
   end
 
   def go_next_st
+    return if @current_st == @route.stations.last
     move(next_st)
   end
 
   def go_back_st
+    return if @current_st == @route.stations.first
     move(previous_st)
   end
 
