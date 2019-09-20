@@ -78,6 +78,7 @@ class Train
   end
 
   def delete_wagon(wagon)
+    return "Error" if wagon.type != @type
     @amount_wagons.delete(wagon)
   end
 
