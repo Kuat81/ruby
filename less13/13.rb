@@ -40,6 +40,8 @@ class Route
 end
 
 class PassangerWagon
+  attr_reader :@pass_seats
+  
    def initialize(pass_seats)
      @pass_seats = pass_seats
      @type = 'PassengerTrain'
@@ -47,6 +49,8 @@ class PassangerWagon
 end
 
 class CargoWagon
+  attr_reader :@volume
+  
   def initialize(volume)
     @volume = volume
     @type = 'CargoTrain'
@@ -59,7 +63,7 @@ class Train
   def initialize(number, type)
     @number = number
     @type = type
-    @amount_wagon = []
+    @amount_wagons = []
   end
 
   def station_route(route)
@@ -70,7 +74,11 @@ class Train
 
   def add_wagon(wagon)
     return "Error" if wagon.type != @type
-    @amount_wagon << wagon
+    @amount_wagons << wagon
+  end
+
+  def delete_wagon(wagon)
+    @amount_wagons.delete(wagon)
   end
 
   def current_station
