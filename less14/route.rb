@@ -14,7 +14,8 @@ class Route
   end
 
   def del_station(station)
-    return "Error" if station == @stations.first || @stations.last
+    #return "Error" if station == @stations.first || @stations.last
     @stations.delete(station)
   end
+
 end

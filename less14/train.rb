@@ -4,7 +4,7 @@ class Train
 
   def initialize(number)
     @number = number
-    @amount_wagon = []
+    @amount_wagons = []
   end
   def station_route(route)
     @route = route
