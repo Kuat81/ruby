@@ -101,6 +101,7 @@ private
     p "Please choice route"
     @routes.each.with_index(1){|route, index| p "#{index}. #{route}"}
     choice = @routes[gets.chomp.to_i - 1]
+    
     p "Please choise added station"
     @stations.each.with_index(1){|station, index| p"#{index}. #{station.name}"}
     choice.add_station(@stations[gets.chomp.to_i - 1])
@@ -110,6 +111,7 @@ private
     p "Please choice route"
     @routes.each.with_index(1){|route, index| p "#{index}. #{route}"}
     choice = @routes[gets.chomp.to_i - 1]
+    
     p "Please choice deleted station"
     choice.stations.each.with_index(1){|station, index| p "#{index}. #{station.name}"}
     choice.del_station(@stations[gets.chomp.to_i - 1])
@@ -129,6 +131,7 @@ private
     p "Please choise train"
     @trains.each.with_index(1){|train, index| p "#{index}. #{train}"}
     train = @trains[gets.chomp.to_i - 1]
+    
     p "Please choise added wagon"
     @wagons.each.with_index(1){|wagon, index| p "#{index}. #{wagon}"}
     train.add_wagon(@wagons[gets.chomp.to_i - 1])
@@ -138,6 +141,7 @@ private
     p "Please choise train"
     @trains.each.with_index(1){|train, index| p "#{index}. #{train}"}
     train = @trains[gets.chomp.to_i - 1]
+    
     p "Please choise for delete wagon"
     train.amount_wagons.each.with_index(1){|wagon, index| p "#{index}. #{wagon}"}
     train.delete_wagon(@wagons[gets.chomp.to_i - 1])
@@ -157,6 +161,8 @@ private
     p "Choice please train"
     @trains.each.with_index(1){|train, index| p "#{index}. #{train}"}
     choice = @trains[gets.chomp.to_i - 1]
+    
+    p "Choice please route"
     @routes.each.with_index(1){|route, index| p "#{index}. #{route}"}
     choice.station_route(@routes[gets.chomp.to_i - 1])
   end
