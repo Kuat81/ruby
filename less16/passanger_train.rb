@@ -6,8 +6,8 @@ require_relative 'instance'
 
 class PassangerTrain < Train
   include Manufacturer
-  include InstanceCounter::Register_Instance
-  extend InstanceCounter::Instances  
+  extend InstanceCounter::ClassMetods
+  include InstanceCounter::InstanceMetods
   
   attr_reader :number, :amount_wagons, :type
 
@@ -16,7 +16,7 @@ class PassangerTrain < Train
     @type = 'passanger'
     @amount_wagons = []
     @@trains << self
-    self.count_obj
+    register_instance
   end
 
   def add_wagon(wagon)
