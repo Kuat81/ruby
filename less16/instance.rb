@@ -1,21 +1,27 @@
 module InstanceCounter
 
-  private
-  module Register_Instance
-    @@count_obj = 0
+  module ClassMetods
+    attr_accessor :instances
+  end
 
-    def count_obj
-      @@count_obj += 1
+
+  module InstanceMetods
+  private
+  
+    def register_instance
+      self.class.instances ||= 0
+      self.class.instances += 1
     end
   end
 
-  public
-  module Instances
+end
 
-    include Register_Instance
-    
-    def count
-      @@count_obj
-    end
+
+class Train
+  extend InstanceCounter::ClassMetods
+  include InstanceCounter::InstanceMetods
+
+  def initialize
+    register_instance
   end
 end
