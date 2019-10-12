@@ -15,13 +15,3 @@ module InstanceCounter
   end
 
 end
-
-
-class Train
-  extend InstanceCounter::ClassMetods
-  include InstanceCounter::InstanceMetods
-
-  def initialize
-    register_instance
-  end
-end
